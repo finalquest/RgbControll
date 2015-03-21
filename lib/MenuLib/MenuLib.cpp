@@ -16,6 +16,8 @@ MenuLib::MenuLib(LcdColorHelper *helper,char * menuTexts,int menuSize, int backg
     this->backgroundColor = backgroundColor;
     this->selectionColor = selectionColor;
     lcdHelper = helper;
+
+    selectedItemIndex = 0;
 }
 
 MenuLib::~MenuLib() {
@@ -29,7 +31,27 @@ void MenuLib::ClearScren(int color) {
 void MenuLib::DrawMenu() {
     if(pages == 0) {
         for(int i = 0; i<menuSize; i++) {
-            lcdHelper->lcd.setStr(items[i].text, i * 16, 0, textColor, selectionColor);
+            int color = backgroundColor;
+            if(selectedItemIndex == i) {
+                color = selectionColor;
+            }
+            lcdHelper->lcd.setStr(items[i].text, i * 16, 0, textColor, color);
         }
     }
+}
+
+void MenuLib::IncrementMenuSelection() {
+    selectedItemIndex++;
+    if(selectedItemIndex > menuSize) {
+        selectedItemIndex = 0;
+    }
+    DrawMenu();
+}
+
+void MenuLib::DecrementMenuSelection() {
+    selectedItemIndex--;
+    if(selectedItemIndex < 0) {
+        selectedItemIndex = menuSize;
+    }
+    DrawMenu();
 }

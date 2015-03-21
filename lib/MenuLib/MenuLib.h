@@ -13,11 +13,14 @@ public:
     int textColor;
     int pages;
     int menuSize;
+    int selectedItemIndex;
 
     MenuLib(LcdColorHelper *helper, char *menuTexts, int menuSize, int backgroundColor, int selectionColor,int textColor);
     ~MenuLib();
 
     void ClearScren(int color);
+    void IncrementMenuSelection();
+    void DecrementMenuSelection();
     void DrawMenu();
     LcdColorHelper *lcdHelper;
     /* data */
