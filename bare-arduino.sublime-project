@@ -2,7 +2,7 @@
 	"folders":
 		[
 			{
-				"path": "/Users/Ladislas/dev/leka/Bare-Arduino-Project"
+				"path": "/Users/finalquest/Projects/Propios/Arduino/RgbControll"
 			}
 		],
 
@@ -41,9 +41,9 @@
 				"-Wno-attributes",
 
 				// Libs - uses wild cards for simplicity
-				"-I${folder:${project_path:moti.sublime-project}}/lib/**",
+				"-I/Users/finalquest/Projects/Propios/Arduino/RgbControll/lib/**",
 				"-I/usr/local/Cellar/avr-libc/**",
-				"-I/Applications/Arduino.app/**"
+				"-I/Applications/Arduino_10.app/**"
 			]
 		}
 }
