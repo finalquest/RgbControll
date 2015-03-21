@@ -379,8 +379,8 @@ void LCDShield::setChar(char c, int x, int y, int fColor, int bColor)
 	}
 	else
 	{
-        fColor = swapColors(fColor);
-        bColor = swapColors(bColor);
+        //fColor = swapColors(fColor);
+        //bColor = swapColors(bColor);
 
 		// Row address set (command 0x2B)
 		LCDCommand(PASETP);
