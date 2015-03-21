@@ -1,0 +1,3 @@
+struct MenuItem {
+  char *text;
+};
