@@ -20,6 +20,8 @@ public:
     void WriteColorToPins();
     void DefaultOn();
     void TurnOff();
+    void IncrementBrightness();
+    void DecrementBrightness();
     
 };
 

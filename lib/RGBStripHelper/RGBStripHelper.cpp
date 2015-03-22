@@ -9,7 +9,7 @@ RGBStripHelper::RGBStripHelper(byte pinR, byte pinG, byte pinB) {
     this->colorG = 255;
     this->colorB = 255;
 
-    brightness = 0;
+    brightness = byte(0);
 
     pinMode(pinR, OUTPUT);
     pinMode(pinG, OUTPUT);
@@ -43,6 +43,19 @@ void RGBStripHelper::TurnOff() {
     WriteColorToPins();
 }
 
+void RGBStripHelper::IncrementBrightness() {
+    if(brightness > 0) {
+      brightness--;
+    }
+    WriteColorToPins();
+}
+
+void RGBStripHelper::DecrementBrightness() {
+    if(brightness < 255) {
+      brightness++;
+    }
+    WriteColorToPins();
+}
 
 void RGBStripHelper::WriteColorToPins()
 {
