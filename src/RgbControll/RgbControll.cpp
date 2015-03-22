@@ -13,6 +13,7 @@ EL MAXIMO LARGO DE UN TITULO DE MENU TIENE QUE SER 16 CHARS
 
 */
 int buttonPins[3] = {3, 4, 5};
+bool buttonPressed[3] = {false,false,false};
 
 void setup() {
     lcdHelper = new LcdColorHelper(PHILLIPS, 60, BLUE);
@@ -35,15 +36,22 @@ void setup() {
 }
 
 void loop() {
-    if(!digitalRead(buttonPins[0])) {
-        currentMenu->DecrementMenuSelection();
-    }
-
-    if(!digitalRead(buttonPins[1])) {
+    if(!digitalRead(buttonPins[0]) && buttonPressed[0] == false) {
         currentMenu->IncrementMenuSelection();
+        buttonPressed[0] = true;
+    } else if (digitalRead(buttonPins[0]) && buttonPressed[0] == true) {
+        buttonPressed[0] = false;
     }
 
-    if(!digitalRead(buttonPins[2])) {
+    if(!digitalRead(buttonPins[1]) && buttonPressed[1] == false ) {
+        currentMenu->DecrementMenuSelection();
+        buttonPressed[1] = true;
+    } else if (digitalRead(buttonPins[1]) && buttonPressed[1] == true) {
+        buttonPressed[1] = false;
+    }
+
+    if(!digitalRead(buttonPins[2]) && buttonPressed[2] == false) {
+        buttonPressed[2] = true;
         Serial.println("Accion");
         if(currentMenu == mainMenu) {
             Serial.println("IGUALES");
@@ -56,6 +64,8 @@ void loop() {
                 stripHelper->TurnOff();
             }
         }
+    } else if (digitalRead(buttonPins[2]) && buttonPressed[2] == true) {
+        buttonPressed[2] = false;
     }
 }
 
