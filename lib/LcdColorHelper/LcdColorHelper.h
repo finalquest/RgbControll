@@ -12,6 +12,7 @@ public:
     LcdColorHelper(int lcdType,char contrast,int clearColor);
     ~LcdColorHelper();
 
+    void ClearScreen(int color);
     /* data */
 };
 

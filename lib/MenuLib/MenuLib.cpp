@@ -48,13 +48,6 @@ void MenuLib::DrawRGBMenu() {
     }
 }
 
-long MenuLib::ColorForWell(int well, int totalWells){
-
-    int red = (float) well / totalWells;
-    int green = well % (totalWells/3) / (float) (totalWells/3);
-    int blue = well % (totalWells/9) / (float) (totalWells/9);
-}
-
 void MenuLib::ClearScren(int color) {
     lcdHelper->lcd.clear(color);
 }

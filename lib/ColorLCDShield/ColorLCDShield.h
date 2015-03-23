@@ -127,7 +127,7 @@
 #define RED			0xF00
 #define MAGENTA		0xF0F
 #define ORANGE 		0xF40
-#define PINK		0xF6A
+#define LCDPINK		0xF6A
 #define CORAL 		0xF75
 #define SALMON 		0xF87
 #define GOLD 		0xFD0

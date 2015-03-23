@@ -21,11 +21,6 @@ void BrightnessMenu::DrawMenu(byte brightness) {
     Serial.println(strcat(items[0].text, integer_string));
     return strcat(items[0].text, integer_string);
 }*/
-
-char * BrightnessMenu::GetMenuString(byte index) {
-   
-}
-
 char * BrightnessMenu::GetMenuString() {
     if(buffer != NULL) {
         Serial.println("NULLLLL");

@@ -11,7 +11,6 @@ public:
     ~BrightnessMenu();
 
     void DrawMenu(byte brightness);
-    char * GetMenuString(byte index);
     char * GetMenuString();
     /* data */
 };

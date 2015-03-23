@@ -1,11 +1,13 @@
 #include "MenuLib.h"
 #include "BrightnessMenu.h"
 #include "RGBStripHelper.h"
+#include "BasicColorSelectionMenu.h"
 
 LcdColorHelper *lcdHelper;
 MenuLib *mainMenu;
 BrightnessMenu *brightnessMenu;
 MenuLib *currentMenu;
+BasicColorSelectionMenu *colorSelectionMenu;
 RGBStripHelper *stripHelper;
 
 
@@ -16,12 +18,12 @@ EL MAXIMO LARGO DE UN TITULO DE MENU TIENE QUE SER 16 CHARS
 */
 int buttonPins[3] = {3, 4, 5};
 bool buttonPressed[3] = {false,false,false};
+char *menuList[] = {"PRENDER","APAGAR","BRILLO","Sel. Col.","QUINTO","SEXTO","SEPTIMO"};
 
 void setup() {
     lcdHelper = new LcdColorHelper(PHILLIPS, 60, BLUE);
-    char *menuList[] = {"PRENDER","APAGAR","BRILLO","CUARTO","QUINTO","SEXTO","SEPTIMO"};
+
     mainMenu = new MenuLib(lcdHelper,menuList,7,YELLOW,WHITE,RED);
-    char *brightMenuText = "BRILLO";
     brightnessMenu = new BrightnessMenu(lcdHelper,YELLOW,WHITE,RED);
 
     currentMenu = mainMenu;
@@ -44,7 +46,7 @@ void setup() {
 void loop() {
     if(!digitalRead(buttonPins[0]) && buttonPressed[0] == false) {
         if(currentMenu == brightnessMenu) {
-            stripHelper->IncrementBrightness();
+            stripHelper->DecrementBrightness();
             ((BrightnessMenu*)currentMenu)->DrawMenu(stripHelper->brightness);
         } else {
             currentMenu->IncrementMenuSelection();
@@ -57,7 +59,7 @@ void loop() {
 
     if(!digitalRead(buttonPins[1]) && buttonPressed[1] == false ) {
         if(currentMenu == brightnessMenu) {
-            stripHelper->DecrementBrightness();
+            stripHelper->IncrementBrightness();
             ((BrightnessMenu*)currentMenu)->DrawMenu(stripHelper->brightness);
         } else {
             currentMenu->DecrementMenuSelection();
@@ -86,6 +88,15 @@ void loop() {
                 currentMenu->ClearScreen();
                 ((BrightnessMenu*)currentMenu)->DrawMenu(stripHelper->brightness);
             }
+            if(currentMenu->selectedItemIndex == 3) {
+                currentMenu = (BasicColorSelectionMenu*)brightnessMenu;
+                lcdHelper->ClearScreen(BLACK);
+                ((BasicColorSelectionMenu*)currentMenu)->DrawMenu();
+            }
+        } else if(currentMenu == brightnessMenu) {
+            currentMenu = mainMenu;
+            currentMenu->ClearScreen();
+            currentMenu->DrawMenu();
         }
     } else if (digitalRead(buttonPins[2]) && buttonPressed[2] == true) {
         buttonPressed[2] = false;

@@ -39,6 +39,7 @@
 				"-Wno-unused-function",
 				"-Wno-unused-variable",
 				"-Wno-attributes",
+				"-Wno-deprecated-writable-strings",
 
 				// Libs - uses wild cards for simplicity
 				"-I/Users/finalquest/Projects/Propios/Arduino/RgbControll/lib/**",

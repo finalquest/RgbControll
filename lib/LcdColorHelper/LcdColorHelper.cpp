@@ -16,3 +16,7 @@ LcdColorHelper::LcdColorHelper(int lcdType,char contrast,int clearColor) {
 LcdColorHelper::~LcdColorHelper() {
     
 }
+
+void LcdColorHelper::ClearScreen(int color) {
+    lcd.clear(color);
+}
