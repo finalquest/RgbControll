@@ -1,5 +1,6 @@
 #ifndef _MENU_LIB_
 #define _MENU_LIB_
+#include "Colors.h"
 #include "LcdColorHelper.h"
 #include "MenuItem.h"
 

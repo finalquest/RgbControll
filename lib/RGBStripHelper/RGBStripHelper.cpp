@@ -24,6 +24,8 @@ void RGBStripHelper::LongToRGB(unsigned long value) {
   colorR = value >> 16; 
   colorG = (value >> 8) & 0xFF; 
   colorB = value & 0xFF; 
+
+  WriteColorToPins();
 }
 
 void RGBStripHelper::setColor(byte red,byte green,byte blue)

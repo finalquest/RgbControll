@@ -9,8 +9,10 @@ public:
     ~BasicColorSelectionMenu();
 
     void DrawMenu();
+    void DrawSelectionBorder();
 
 private:
+    byte lastSelectedIndex;
     int ConvertFullColorToLCD(unsigned long intVal);
     /* data */
 };

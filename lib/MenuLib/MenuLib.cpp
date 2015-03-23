@@ -87,13 +87,13 @@ void MenuLib::IncrementMenuSelection() {
     if(selectedItemIndex > menuSize) {
         selectedItemIndex = 0;
     }
-    DrawMenu();
+    //DrawMenu();
 }
 
 void MenuLib::DecrementMenuSelection() {
     selectedItemIndex--;
     if(selectedItemIndex < 0) {
-        selectedItemIndex = menuSize;
+        selectedItemIndex = menuSize - 1;
     }
-    DrawMenu();
+    //DrawMenu();
 }

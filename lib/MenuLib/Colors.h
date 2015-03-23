@@ -1,3 +1,4 @@
+
 #ifndef _COLORS_
 #define _COLORS_
 
@@ -19,7 +20,7 @@
 #define FULL_PINK           FULL_PURPLE_LIGHT + 1
 #define COLOR_AMOUNT        FULL_PINK + 1
 
-unsigned long ColorArray[COLOR_AMOUNT] = {      0x00FF0000,
+static unsigned long ColorArray[COLOR_AMOUNT] = {      0x00FF0000,
                                                 0x0000FF00,
                                                 0x000000FF,
                                                 0x00FFFFFF,
